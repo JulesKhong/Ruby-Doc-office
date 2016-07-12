@@ -1,0 +1,28 @@
+<h1>Doctor Awesome Wellness Clinic</h1>
+<h3>Add a Doctor</h3>
+<form class="form-group" action="/doctor_form" method="post">
+  <label for="doctor">Doctor's Name:</label>
+  <input class="form-control" type="text" name="doctor">
+  <label for="specialty">Specialty:</label>
+  <input class="form-control" type="text" name="specialty">
+  <button class="btn btn-success" type="submit">Add Doctor</button>
+</form>
+
+<hr>
+
+<h3>Add a Patient</h3>
+<form class="form-group" action="/patient_form" method="post">
+  <label for="name">Patient's Name:</label>
+  <input class="form-control" type="text" name="name">
+  <label for="birthday">Birthday:</label>
+  <input class="form-control" type="text" name="birthday">
+     <% if @doctors.any?() %>
+         <label for="doctors">Select a Doctor:</label>
+         <select class="form-control" id="doctors" name="doctors">
+         <% @doctors.each() do |doctor| %>
+         <option><%= doctor %></option>
+         <% end %>
+    <% end %>
+   </select>
+  <button class="btn btn-success" type="submit">Add Patient</button>
+</form>
