@@ -26,4 +26,14 @@ class Patient
   define_method(:==) do |another_patient|
     self.name().==(another_patient.name()).&(self.birthday.==(another_patient.birthday()))
   end
+
+  define_singleton_method(:find_patients) do |doctor_id|
+    patients = DB.exec("SELECT * FROM patient WHERE doctor_id='#{doctor_id}';")
+    @patient_names =[]
+    patients.each() do |patient|
+      name = patient.fetch("name")
+      @patient_names.push(name)
+    end
+    @patient_names
+  end
 end

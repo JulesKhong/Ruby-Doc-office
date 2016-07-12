@@ -20,20 +20,8 @@ describe('adding a doctor',{ :type => :feature}) do
   end
 end
 
-
-describe('assigning a doctor to a patient',{ :type => :feature }) do
-  it("allows an admin to assign a doctor to a patient") do
-    visit('/')
-    fill_in('doctor', :with => "Dr. Who")
-    fill_in('specialty', :with => "time travel")
-    click_button('Add Doctor')
-    click_link('Return to dashboard')
-    expect(page).to have_content('Dr. Who')
-  end
-end
-
-describe('adding a patient',{ :type => :feature}) do
-  it("allows an admin to add a patient and their birthday to the site") do
+describe('adding a patient with a doctor',{ :type => :feature}) do
+  it("allows an admin to add a patient, and their birthday, and assign a doctor to them") do
     visit('/')
     fill_in('doctor', :with => "Dr. Who")
     fill_in('specialty', :with => "time travel")
